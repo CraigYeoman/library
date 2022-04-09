@@ -1,0 +1,76 @@
+:root {
+    --header-background-color: #1E293B;
+    --header-text-color: #F1F5F9;
+    --main-background-color: #A1A1AA;
+    --main-text-color: #F1F5F9;
+    --book-background-color: #ffffff;
+    --card-text-color: #78716c;
+    --card-heading-text-color: #111827;
+    --card-svg-color: invert(7%) sepia(8%) saturate(963%) hue-rotate(341deg) brightness(96%) contrast(92%);
+    --box-shadow-cards: 0px 0px 3px #404040;
+
+}
+
+@font-face {
+    font-family: font-books;
+    src: url(./fonts/BebasNeue-Regular.ttf);
+}
+
+body {
+    display: grid;
+    justify-items: center;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    width: 100vw;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem 1rem 1rem;
+    background: var(--header-background-color);
+    color: var(--header-text-color);
+}
+
+.library {
+    grid-area: 2 / 1 / 4 / 2;
+    background: var( --main-background-color);
+    height: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(232px, 282px));
+    grid-template-rows: repeat(auto-fit, minmax(182px, 232px));
+    
+}
+
+.book {
+    display: grid;
+    grid-template-columns: 1fr 20px;
+    gap: 5px;
+    font-family: font-books, sans-serif;
+    font-size: 1.7rem;
+    background: var(--book-background-color);
+    margin: 1rem;
+    padding: 10px;
+    border-radius: 1em;
+}
+
+.book-info {
+    display: grid;
+    font-family: font-books, sans-serif;
+    font-size: 1.7rem;
+    margin-left: 10px;
+}
+
+.delete {
+    align-self: flex-start;
+    justify-self: center;
+    background: var(--book-background-color);
+    border: none;
+    margin-right: 10px;
+    
+}
