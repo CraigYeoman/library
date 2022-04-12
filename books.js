@@ -1,4 +1,5 @@
 // getElementByID
+
 const bookTitle = document.getElementById('title');
 const bookAuthor = document.getElementById('author');
 const bookPages = document.getElementById('pages');
@@ -13,13 +14,17 @@ function Book(title, author, pages, read) {
     this.author = author
     this.pages = pages
     this.read = read
-    this.info = function() {
-        return (title + author + pages + read)
-    }
-    console.log(this.info());
 }
 
 function addBookToLibrary() {
-    myLibrary.push(Book(bookTitle.value, bookAuthor.value, bookPages.value, read.value))
+    let newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, read.value);
+    myLibrary.push(newBook);
 }
 
+function library() {
+    let i = 0;
+    while (i < myLibrary.length) {
+        
+        i++;
+    }
+}

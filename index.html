@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="books.js"></script>
+    <script src="books.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -17,9 +17,9 @@
         <div class="library">
             <div class="book">
                 <div class="book-info">
-                    <div class="book-details" id='book-title'>title</div>
-                    <div class="book-details" id='book-author'>author</div>
-                    <div class="book-details" id='book-pages'>pages</div>
+                    <div class="book-details">title</div>
+                    <div class="book-details">author</div>
+                    <div class="book-details">pages</div>
                     <div class="book-details">read</div>
                 </div>
                 <button class="delete">
@@ -31,19 +31,19 @@
     <div class="modal" id="book-entry">
         <div class="small-container">
             <label for="title">Book Title</label>
-            <input type="text" id="title" value="value">
+            <input type="text" id="title" value="">
         </div>
         <div class="small-container">
             <label for="author">Author</label>
-            <input type="text" id="author" value="value">
+            <input type="text" id="author" value="">
         </div>
         <div class="small-container">
             <label for="pages">Pages</label>
-            <input type="text" id="pages" value="value">
+            <input type="text" id="pages" value="">
         </div>
         <div class="small-container">
             <label for="read">Read</label>
-            <input type="text" id="read" value="value">
+            <input type="text" id="read" value="">
         </div>
     </div>
 </body>
