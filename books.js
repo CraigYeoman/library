@@ -1,3 +1,9 @@
+// getElementByID
+const bookTitle = document.getElementById('title');
+const bookAuthor = document.getElementById('author');
+const bookPages = document.getElementById('pages');
+const read = document.getElementById('read');
+
 let myLibrary = [];
 
 const theHobbit = new Book("meow", "meow", "meow", "meow");
@@ -14,6 +20,6 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-    myLibrary.push(Book)
+    myLibrary.push(Book(bookTitle.value, bookAuthor.value, bookPages.value, read.value))
 }
 

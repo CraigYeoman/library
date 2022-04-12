@@ -17,10 +17,10 @@
         <div class="library">
             <div class="book">
                 <div class="book-info">
-                    <div class="title">title</div>
-                    <div class="author">author</div>
-                    <div class="pages">pages</div>
-                    <div class="read">read</div>
+                    <div class="book-details" id='book-title'>title</div>
+                    <div class="book-details" id='book-author'>author</div>
+                    <div class="book-details" id='book-pages'>pages</div>
+                    <div class="book-details">read</div>
                 </div>
                 <button class="delete">
                     <img src="svg/delete.svg">
@@ -30,16 +30,20 @@
     </div>
     <div class="modal" id="book-entry">
         <div class="small-container">
-            <label for="bookTitle">Book Title</label>
-            <input type="text" id="bookTitle">
+            <label for="title">Book Title</label>
+            <input type="text" id="title" value="value">
         </div>
         <div class="small-container">
             <label for="author">Author</label>
-            <input type="text" id="author">
+            <input type="text" id="author" value="value">
         </div>
         <div class="small-container">
             <label for="pages">Pages</label>
-            <input type="text" id="pages">
+            <input type="text" id="pages" value="value">
+        </div>
+        <div class="small-container">
+            <label for="read">Read</label>
+            <input type="text" id="read" value="value">
         </div>
     </div>
 </body>
