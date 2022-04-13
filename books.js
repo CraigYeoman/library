@@ -28,14 +28,20 @@ function addBookToLibrary() {
 function library() {
     let i = 0;
     while (i < myLibrary.length) {
-        let bookDiv = document.createElement('div')
-        bookDiv.id = 'book'
-        bookDiv.className = 'book'
+        let bookDiv = document.createElement('div');
+        bookDiv.id = 'book';
+        bookDiv.className = 'book';
         libraryDiv.appendChild(bookDiv);
         let bookInfoDiv = document.createElement('div');
         bookInfoDiv.className = 'book-info';
         bookInfoDiv.id = 'book-info';
         bookDiv.appendChild(bookInfoDiv);
+        let deleteButton = document.createElement('button');
+        deleteButton.className = 'delete';
+        bookDiv.appendChild(deleteButton);
+        let deleteSvg = document.createElement('img');
+        deleteSvg.src = 'svg/delete.svg';
+        deleteButton.appendChild(deleteSvg);
         let object = myLibrary[i]
         for (const prop in object) {
             const div = document.createElement('div');
