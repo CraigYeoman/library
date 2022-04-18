@@ -20,29 +20,35 @@ function populateLibrary() {
     library.forEach(book => {
         const bookElement = document.createElement('div');
         bookElement.classList.add('book');
-        bookElement.appendChild(libraryContainer);
+        libraryContainer.appendChild(bookElement);
         const bookInfoElement = document.createElement('div');
         bookInfoElement.classList.add('book-info');
-        bookInfoElement.appendChild(bookElement);
+        bookElement.appendChild(bookInfoElement);
         let deleteButton = document.createElement('button');
         deleteButton.classList.add('delete');
         bookElement.appendChild(deleteButton);
         let deleteSvg = document.createElement('img');
         deleteSvg.src = 'svg/delete.svg';
         deleteButton.appendChild(deleteSvg);
-        let i = 0;
-        console.log(book.title)
-        while (i < library.length) {
-            let object = library[i];
-            for (const prop in object) {
-                const bookDetails = document.createElement('div');
-                bookDetails.classList.add('book-details');
-                bookDetails.textContent = object[prop];
-                bookInfoElement.appendChild(bookDetails);
+        // let i = 0;
+        const bookDetails = document.createElement('div');
+        bookDetails.classList.add('book-details');
+        bookDetails.textContent = book.title;
+        bookDetails.textContent = book.author;
+        bookInfoElement.appendChild(bookDetails);
+        //console.log(book.title)
+        
+        // while (i < library.length) {
+        //     let object = library[i];
+        //     for (const prop in object) {
+        //         const bookDetails = document.createElement('div');
+        //         bookDetails.classList.add('book-details');
+        //         bookDetails.textContent = object[prop];
+        //         bookInfoElement.appendChild(bookDetails);
                 
-            }
-            i++;
-        }
+        //     }
+        //     i++;
+        // }
     }) 
 }
 
