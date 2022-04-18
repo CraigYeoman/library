@@ -66,11 +66,11 @@ body {
     margin-left: 10px;
 }
 
-.delete {
+.delete-button {
     align-self: flex-start;
     justify-self: center;
     background: var(--book-background-color);
-    border: none;
+    /*border: none;*/
     margin-right: 10px;
     
 }
@@ -90,7 +90,7 @@ body {
     color: #F9FAF8;
     font-weight: bold;
     padding: 10px;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(0);
 }
 
 .modal.activate {

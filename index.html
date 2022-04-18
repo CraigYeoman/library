@@ -12,20 +12,9 @@
     <div class="container">
         <div class="header">
             <div class="title">Library</div>
-            <div class="add-book">+ Add Book</div>
+            <button class="add-book-button" id="add-book-button">+ Add Book</button>
         </div>
-        <div class="library" id="library">
-            <div class="book">
-                <div class="book-info">
-                    <div class="book-details">title</div>
-                    <div class="book-details">author</div>
-                    <div class="book-details">pages</div>
-                    <div class="book-details">read</div>
-                </div>
-                <button class="delete">
-                    <img src="svg/delete.svg">
-                </button>
-            </div>
+        <div class="library" id="library" data-library-container>
         </div>
     </div>
     <div class="modal" id="book-entry">
@@ -45,6 +34,8 @@
             <label for="read">Read</label>
             <input type="text" id="read" value="">
         </div>
+        <button class="add-to-library" id="add-to-library">Add to library</button>
     </div>
+    <div class="background-modal" id="background-modal"></div>
 </body>
 </html>
