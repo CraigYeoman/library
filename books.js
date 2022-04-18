@@ -1,6 +1,8 @@
 //Query Selectors
 const libraryContainer = document.querySelector('[data-library-container]');
 
+const bookTemplate = document.getElementById('book-template');
+
 let library = [];
 
 function Book(title, author, pages, read) {
@@ -18,24 +20,35 @@ library.push(theHobbo);
 function populateLibrary() {
     //clearElement(libraryContainer);
     library.forEach(book => {
-        const bookElement = document.createElement('div');
-        bookElement.classList.add('book');
+        const bookElement = document.importNode(bookTemplate.content, true);
+        const bookName = bookElement.querySelector('[book-name]');
+        bookName.textContent = book.title;
+        const bookAuthor = bookElement.querySelector('[book-author]');
+        bookAuthor.textContent = book.author;
+        const bookPages = bookElement.querySelector('[book-pages]');
+        bookPages.textContent = book.pages;
+        const bookRead = bookElement.querySelector('[book-read]');
+        bookRead.textContent = book.read;
         libraryContainer.appendChild(bookElement);
-        const bookInfoElement = document.createElement('div');
-        bookInfoElement.classList.add('book-info');
-        bookElement.appendChild(bookInfoElement);
-        let deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete');
-        bookElement.appendChild(deleteButton);
-        let deleteSvg = document.createElement('img');
-        deleteSvg.src = 'svg/delete.svg';
-        deleteButton.appendChild(deleteSvg);
-        // let i = 0;
-        const bookDetails = document.createElement('div');
-        bookDetails.classList.add('book-details');
-        bookDetails.textContent = book.title;
-        bookDetails.textContent = book.author;
-        bookInfoElement.appendChild(bookDetails);
+
+        // const bookElement = document.createElement('div');
+        // bookElement.classList.add('book');
+        // libraryContainer.appendChild(bookElement);
+        // const bookInfoElement = document.createElement('div');
+        // bookInfoElement.classList.add('book-info');
+        // bookElement.appendChild(bookInfoElement);
+        // let deleteButton = document.createElement('button');
+        // deleteButton.classList.add('delete');
+        // bookElement.appendChild(deleteButton);
+        // let deleteSvg = document.createElement('img');
+        // deleteSvg.src = 'svg/delete.svg';
+        // deleteButton.appendChild(deleteSvg);
+        // // let i = 0;
+        // const bookDetails = document.createElement('div');
+        // bookDetails.classList.add('book-details');
+        // bookDetails.textContent = book.title;
+        // bookDetails.textContent = book.author;
+        // bookInfoElement.appendChild(bookDetails);
         //console.log(book.title)
         
         // while (i < library.length) {
