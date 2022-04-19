@@ -1,5 +1,6 @@
 //Query Selectors
 const libraryContainer = document.querySelector('[data-library-container]');
+const addBookButton = document.querySelector('[data-add-book]');
 
 const bookTemplate = document.getElementById('book-template');
 
@@ -10,65 +11,52 @@ function Book(title, author, pages, read) {
     this.author = author
     this.pages = pages
     this.read = read
+    this.id = library.length;
 }
 
-const theHobbit = new Book("meow", "meow", "meow", "meow");
-const theHobbo = new Book("new", "new", "new", "new");
+const theOdyssey = new Book("Odyssey", "Homer", "384", "Read");
+library.push(theOdyssey);
+const theHobbit = new Book("The Hobbit", "J. R. R. Tolkien", "304", "Unread");
 library.push(theHobbit);
-library.push(theHobbo);
 
 function populateLibrary() {
-    //clearElement(libraryContainer);
+    clearElement(libraryContainer);
     library.forEach(book => {
         const bookElement = document.importNode(bookTemplate.content, true);
-        const bookName = bookElement.querySelector('[book-name]');
-        bookName.textContent = book.title;
+        const booktitle = bookElement.querySelector('[book-title]');
+        booktitle.textContent = book.title;
         const bookAuthor = bookElement.querySelector('[book-author]');
         bookAuthor.textContent = book.author;
         const bookPages = bookElement.querySelector('[book-pages]');
         bookPages.textContent = book.pages;
         const bookRead = bookElement.querySelector('[book-read]');
         bookRead.textContent = book.read;
+        const deleteButton = bookElement.querySelector('[delete-button]')
+        if (book.id === library.findIndex(i => i.title === book.title)) {
+            deleteButton.id = book.id
+        } else {book.id = library.findIndex(i => i.title === book.title);
+            deleteButton.id = book.id;
+        }
         libraryContainer.appendChild(bookElement);
-
-        // const bookElement = document.createElement('div');
-        // bookElement.classList.add('book');
-        // libraryContainer.appendChild(bookElement);
-        // const bookInfoElement = document.createElement('div');
-        // bookInfoElement.classList.add('book-info');
-        // bookElement.appendChild(bookInfoElement);
-        // let deleteButton = document.createElement('button');
-        // deleteButton.classList.add('delete');
-        // bookElement.appendChild(deleteButton);
-        // let deleteSvg = document.createElement('img');
-        // deleteSvg.src = 'svg/delete.svg';
-        // deleteButton.appendChild(deleteSvg);
-        // // let i = 0;
-        // const bookDetails = document.createElement('div');
-        // bookDetails.classList.add('book-details');
-        // bookDetails.textContent = book.title;
-        // bookDetails.textContent = book.author;
-        // bookInfoElement.appendChild(bookDetails);
-        //console.log(book.title)
-        
-        // while (i < library.length) {
-        //     let object = library[i];
-        //     for (const prop in object) {
-        //         const bookDetails = document.createElement('div');
-        //         bookDetails.classList.add('book-details');
-        //         bookDetails.textContent = object[prop];
-        //         bookInfoElement.appendChild(bookDetails);
-                
-        //     }
-        //     i++;
-        // }
     }) 
 }
 
-//function clearElement(element) {
-    //while(element.firstChild){
-    //    element.removeChild(element.firstChild);
-   // }
-//}
+function clearElement(element) {
+    while(element.firstChild){
+        element.removeChild(element.firstChild);
+    }
+}
+
+libraryContainer.addEventListener('click', event => {
+    if(event.target.tagName.toLowerCase() === 'button') {
+        library.splice(event.target.id, 1);
+        populateLibrary();
+
+    }
+})
+
+addBookButton.addEventListener('click', event => {
+    console.log('click')
+})
 
 populateLibrary();

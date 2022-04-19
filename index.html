@@ -12,7 +12,7 @@
     <div class="container">
         <div class="header">
             <div class="title">Library</div>
-            <button class="add-book-button" id="add-book-button">+ Add Book</button>
+            <button class="add-book-button" data-add-book>+ Add Book</button>
         </div>
         <div class="library" id="library" data-library-container>
             <div class="book">
@@ -51,12 +51,12 @@
     <template id="book-template">
         <div class="book">
             <div class="book-info">
-                <div class="book-details" book-name></div>
+                <div class="book-details" book-title></div>
                 <div class="book-details" book-author></div>
                 <div class="book-details" book-pages></div>
                 <div class="book-details" book-read></div>
             </div>
-            <button class="delete">
+            <button class="delete" delete-button>
                 <img src="svg/delete.svg">
             </button>
         </div>
