@@ -1,8 +1,15 @@
 //Query Selectors
 const libraryContainer = document.querySelector('[data-library-container]');
 const addBookButton = document.querySelector('[data-add-book]');
+const addBookToLibraryButton = document.querySelector('[data-add-book-library');
+const addBookTitle = document.querySelector('#title');
+const addBookAuthor = document.querySelector('#author');
+const addBookPages = document.querySelector('#pages');
+const addBookRead = document.querySelector('#read');
 
 const bookTemplate = document.getElementById('book-template');
+const addBookModal = document.getElementById('modal');
+const backgroundModal = document.getElementById('background-modal');
 
 let library = [];
 
@@ -47,6 +54,19 @@ function clearElement(element) {
     }
 }
 
+function openModal() {
+    addBookModal.classList.add('activate');
+    backgroundModal.classList.add('activate');
+}
+
+function addBooktoLibrary() {
+    let newBook = new Book(addBookTitle.value, addBookAuthor.value, addBookPages.value, addBookRead.value);
+    library.push(newBook);
+    populateLibrary();
+    addBookModal.classList.remove('activate');
+    backgroundModal.classList.remove('activate');
+}
+
 libraryContainer.addEventListener('click', event => {
     if(event.target.tagName.toLowerCase() === 'button') {
         library.splice(event.target.id, 1);
@@ -55,8 +75,7 @@ libraryContainer.addEventListener('click', event => {
     }
 })
 
-addBookButton.addEventListener('click', event => {
-    console.log('click')
-})
+addBookButton.addEventListener('click', openModal);
+addBookToLibraryButton.addEventListener('click', addBooktoLibrary);
 
 populateLibrary();
