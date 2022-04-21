@@ -37,6 +37,11 @@ body {
     color: var(--header-text-color);
 }
 
+.title {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
 .library {
     grid-area: 2 / 1 / 4 / 2;
     background: var( --main-background-color);
@@ -66,14 +71,21 @@ body {
     margin-left: 10px;
 }
 
-.delete-button {
+.delete {
     align-self: flex-start;
     justify-self: center;
     background: var(--book-background-color);
-    /*border: none;*/
-    margin-right: 10px;
+    border: none;
+    margin-right: 30px;
     
 }
+
+button img {
+    height: 30px
+}
+
+
+
 
 .modal {
     position: fixed;
@@ -115,3 +127,4 @@ body {
 .background-modal.activate {
     display: block;
 }
+

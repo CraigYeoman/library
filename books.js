@@ -1,4 +1,4 @@
-//Query Selectors
+//QuerySelector
 const libraryContainer = document.querySelector('[data-library-container]');
 const addBookButton = document.querySelector('[data-add-book]');
 const addBookToLibraryButton = document.querySelector('[data-add-book-library');
@@ -6,13 +6,13 @@ const addBookTitle = document.querySelector('#title');
 const addBookAuthor = document.querySelector('#author');
 const addBookPages = document.querySelector('#pages');
 const addBookRead = document.querySelector('#read');
-
+//getElementbyId
 const bookTemplate = document.getElementById('book-template');
 const addBookModal = document.getElementById('modal');
 const backgroundModal = document.getElementById('background-modal');
-
+//Array
 let library = [];
-
+//Function
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -20,11 +20,6 @@ function Book(title, author, pages, read) {
     this.read = read
     this.id = library.length;
 }
-
-const theOdyssey = new Book("Odyssey", "Homer", "384", "Read");
-library.push(theOdyssey);
-const theHobbit = new Book("The Hobbit", "J. R. R. Tolkien", "304", "Unread");
-library.push(theHobbit);
 
 function populateLibrary() {
     clearElement(libraryContainer);
@@ -35,7 +30,7 @@ function populateLibrary() {
         const bookAuthor = bookElement.querySelector('[book-author]');
         bookAuthor.textContent = book.author;
         const bookPages = bookElement.querySelector('[book-pages]');
-        bookPages.textContent = book.pages;
+        bookPages.textContent = book.pages + " " + "pages";
         const bookRead = bookElement.querySelector('[book-read]');
         bookRead.textContent = book.read;
         const deleteButton = bookElement.querySelector('[delete-button]')
@@ -67,15 +62,27 @@ function addBooktoLibrary() {
     backgroundModal.classList.remove('activate');
 }
 
-libraryContainer.addEventListener('click', event => {
-    if(event.target.tagName.toLowerCase() === 'button') {
-        library.splice(event.target.id, 1);
-        populateLibrary();
-
+function deleteBook(event) {
+    if(event.target.tagName.toLowerCase() === 'img') {
+                 library.splice(event.target.id, 1);
+                 populateLibrary();
+        
     }
-})
+}
 
+// function readStatus(event){
+//     if(event.target.tagName.toLowerCase() === 'button') {
+//         console.log(event.target.tagName)
+//     }
+// }
+//EventListner
+libraryContainer.addEventListener('click', deleteBook, false);
+//libraryContainer.addEventListener('click', readStatus, false);
 addBookButton.addEventListener('click', openModal);
 addBookToLibraryButton.addEventListener('click', addBooktoLibrary);
-
+//Load Page Library
+const theOdyssey = new Book("Odyssey", "Homer", "384", "Read");
+library.push(theOdyssey);
+const theHobbit = new Book("The Hobbit", "J. R. R. Tolkien", "304", "Unread");
+library.push(theHobbit);
 populateLibrary();
